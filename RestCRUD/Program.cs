@@ -24,10 +24,10 @@ app.MapPost("/api/products", (HttpContext context) =>
     return context.Response.WriteAsync("Product created successfully.");
 });
 
-app.MapGet("/api/products", (HttpContext context) =>
+app.MapGet("/api/products", async (HttpContext context) =>
 {
     context.Response.StatusCode = 200; // OK
-    return context.Response.WriteAsJsonAsync(products);
+    await context.Response.WriteAsJsonAsync(products);
 });
 
 app.MapGet("/api/products/{id}", (HttpContext context) =>
